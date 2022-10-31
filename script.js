@@ -17,6 +17,19 @@ function inicio() {
         menu2.classList.remove('escondido');
 
         const messages = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages')
+        messages.then(Resposta)
+        console.log(messages)
+        function Resposta(resposta) {
+            let mensagens = document.querySelector('.principal main')
+            let i=0;
+            while (i<messages.length) {
+                mensagens.innerHTML += `<div class="mensagem">
+                                            <span>messages[i].time</span>
+                                        </div>`;
+                i++;
+            
+            }
+        }
     }
 
     function Erro() {
